@@ -62,6 +62,7 @@ void *init_worker(void *p_arguments)
 	}
 	
 	printf("Thread %d exiting\n", thread_id);
+	return NULL;
 }
 
 
