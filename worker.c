@@ -47,9 +47,9 @@ void *init_worker(void *p_arguments)
 		pthread_mutex_lock(sync_buf->mutex);
 		action = sync_buf->action;
 		if(action == WORK_IN_QUEUE) {
-			sync_buf->action = NO_WORK;
+			sync_buf->action = NO_WORK; /* There is work in the queue. Copy it out and clear the queue before we start working on the assigned work. */
 			value = sync_buf->value;
-		} else if(action == NO_WORK)
+		} else if(action == NO_WORK) /* There is no work. Rest a bit. */
 			action = REST;
 		pthread_mutex_unlock(sync_buf->mutex);
 		
