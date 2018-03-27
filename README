@@ -1,0 +1,7 @@
+Reference code that demonstrates use of the pthreads. In this implementation, a parent spawns seveal workers which waits for input from the parent thread. The parent assigns work to the workers via a work queue system. The workers exit only after they receive an exit command from the parent thread.
+
+To conmpile, just perform make.
+
+To run,
+
+my_pthread <no. of threads>
