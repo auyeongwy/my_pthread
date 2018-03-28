@@ -56,8 +56,9 @@ void *init_worker(void *p_arguments)
 		if(action == WORK_IN_QUEUE)
 			final_value = do_action(thread_id, final_value, value);
 		else if(action == REST) {
+			//printf("Worker %d wait\n", thread_id);
 			sched_yield();
-			usleep(10);
+			//usleep(10);
 		}
 	}
 	

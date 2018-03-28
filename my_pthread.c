@@ -165,8 +165,9 @@ static void assign_work(const unsigned int p_value)
 				sync_flag = 0;
 			} else {
 				pthread_mutex_unlock(v_sync_array[i].mutex); /* There is still work in the queue. Yield the thread and try again later. */
+				//printf("Wait on worker %d\n", i+1);
 				sched_yield();
-				//usleep(10);
+				usleep(10);
 			}
 		}
 	}	
@@ -189,7 +190,7 @@ static void stop_workers()
 			} else {
 				pthread_mutex_unlock(v_sync_array[i].mutex); /* There is still work in the queue. Yield the thread and try again later. */
 				sched_yield();
-				//usleep(10);
+				usleep(10);
 			}
 		}
 	}
